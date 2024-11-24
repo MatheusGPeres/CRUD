@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" th:href="@{/css/atualizar.css}">
+</head>
+
+<body>
+    <!-- INICIO HEADER -->
+    <header class="header">
+        <nav class="nav">
+            <ul class="nav-list">
+                <li>
+                    <a th:href="@{/}">Home</a>
+                </li>
+                <li>
+                    <a th:href="@{/tabela}">Registros</a>
+                </li>
+                <li>
+                    <a th:href="@{/agendamento}">Agendamento</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!-- FIM HEADER -->
+
+    <main class="form-container">
+        <h2>Atualizar Dados</h2>
+        <form th:action="@{'/atualizar/' + ${id}}" method="post" th:object="${cliente}">
+
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" th:field="*{nome}">
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" th:field="*{email}">
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" th:field="*{telefone}">
+
+            <label>Serviço:</label>
+            <div class="radio-group">
+                <input type="radio" id="corte" value="Corte" th:field="*{servico}" required>
+                <label for="corte">Corte</label>
+
+                <input type="radio" id="barba" value="Barba" th:field="*{servico}">
+                <label for="barba">Barba</label>
+
+                <input type="radio" id="combo" value="Corte + Barba" th:field="*{servico}">
+                <label for="combo">Corte + Barba</label>
+            </div>
+
+            <label for="horario">Horário:</label>
+            <input type="time" id="horario" th:field="*{horario}">
+
+            <label for="data">Data:</label>
+            <input type="date" id="data" th:field="*{dia}">
+
+            <br>
+
+            <input type="submit" value="Atualizar" class="call-to-action btn">
+
+            <!-- <button type="submit" class="call-to-action btn">Atualizar</button> -->
+
+        </form>
+
+    </main>
+
+    <!-- INICIO RODAPE -->
+    <footer>
+        <h3>
+            <a th:href="@{/}">BarberAR</a>
+        </h3>
+        <br>
+        <p>© 2024 BarberAR - Todos os direitos reservados.</p>
+    </footer>
+    <!-- FIM RODAPE -->
+</body>
+
+</html>

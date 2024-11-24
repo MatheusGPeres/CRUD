@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registros</title>
+    <link rel="stylesheet" th:href="@{/css/tabela.css}">
+</head>
+
+<body>
+    <!-- INICIO HEADER -->
+    <header class="header">
+        <nav class="nav">
+            <ul class="nav-list">
+                <li>
+                    <a th:href="@{/}">Home</a>
+                </li>
+                <li>
+                    <a th:href="@{/tabela}">Registros</a>
+                </li>
+                <li>
+                    <a th:href="@{/agendamento}">Agendamento</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!-- FIM HEADER -->
+
+    <main class="table-container">
+        <h1>Clientes Agendados</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Serviço</th>
+                    <th>Horário</th>
+                    <th>Data</th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Clientes listados a partir do objeto "clientes" passado pelo controlador -->
+                <tr th:each="cliente : ${clientes}">
+                    <td th:text="${cliente.id}"></td>
+                    <td th:text="${cliente.nome}"></td>
+                    <td th:text="${cliente.email}"></td>
+                    <td th:text="${cliente.telefone}"></td>
+                    <td th:text="${cliente.servico}"></td>
+                    <td th:text="${cliente.horario}"></td>
+                    <td th:text="${cliente.dia}"></td>
+
+                    <td><a th:href="@{'/atualizar/' + ${cliente.id}}">✏️</a></td>
+
+                    <td>
+                        <form th:action="@{'/deletar/' + ${cliente.id}}" method="post">
+                            <button type="submit" class="call-to-action excluir">🗑️</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </main>
+
+    <!-- INÍCIO RODAPÉ -->
+    <footer>
+        <h3>
+            <a th:href="@{/}">BarberAR</a>
+        </h3>
+        <p>© 2024 BarberAR - Todos os direitos reservados.</p>
+    </footer>
+    <!-- FIM RODAPÉ -->
+</body>
+
+</html>

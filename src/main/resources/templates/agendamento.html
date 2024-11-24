@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento</title>
+    <link rel="stylesheet" th:href="@{/css/agendamento.css}">
+</head>
+
+<body>
+    <header>
+        <!-- INÍCIO HEADER -->
+        <nav class="nav">
+            <ul class="nav-list">
+                <li>
+                    <a th:href="@{/}">Home</a>
+                </li>
+                <li>
+                    <a th:href="@{/tabela}">Registros</a>
+                </li>
+                <li>
+                    <a th:href="@{/agendamento}">Agendamento</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- FIM HEADER -->
+    </header>
+
+    <main class="form-container">
+        <h2>Agende seu horário</h2>
+        <form th:action="@{/agendamento}" method="post" th:object="${cliente}">
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" th:field="*{nome}" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" th:field="*{email}" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" th:field="*{telefone}" required>
+
+            <label>Serviço:</label>
+            <div class="radio-group">
+                <input type="radio" id="corte" value="Corte" th:field="*{servico}" required>
+                <label for="corte">Corte</label>
+
+                <input type="radio" id="barba" value="Barba" th:field="*{servico}">
+                <label for="barba">Barba</label>
+
+                <input type="radio" id="combo" value="Corte + Barba" th:field="*{servico}">
+                <label for="combo">Corte + Barba</label>
+            </div>
+
+            <label for="horario">Horário:</label>
+            <input type="time" id="horario" th:field="*{horario}" required>
+
+            <label for="data">Data:</label>
+            <input type="date" id="data" th:field="*{dia}" required>
+
+            <div>
+                <button type="submit" class="call-to-action btn">Agendar</button>
+            </div>
+
+
+        </form>
+    </main>
+
+    <!-- INÍCIO RODAPÉ -->
+    <footer>
+        <h3>
+            <a th:href="@{/}">BarberAR</a>
+        </h3>
+        <p>© 2024 BarberAR - Todos os direitos reservados.</p>
+    </footer>
+    <!-- FIM RODAPÉ -->
+</body>
+
+</html>

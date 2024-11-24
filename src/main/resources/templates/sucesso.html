@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sucesso</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        Swal.fire({
+            title: "Muito bem!",
+            text: "Agendado com sucesso!",
+            icon: "success",
+            confirmButtonColor: "green",
+            willClose: () => {
+                window.location.href = "/"; // Redireciona para a página inicial
+            }
+        });
+    </script>
+
+    <!-- <noscript>
+        <h1>Agendamento realizado com sucesso!</h1>
+        <a href="/principal">Clique aqui para voltar à página inicial.</a>
+    </noscript> -->
+
+</body>
+
+</html>

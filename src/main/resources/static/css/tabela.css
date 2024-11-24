@@ -1,0 +1,165 @@
+/* Reset e regras básicas */
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #222222;
+    /* Cor de fundo escura */
+}
+
+/* Navbar sticky */
+.nav {
+    background-color: #181818;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: sticky;
+    top: 0;
+    z-index: 9;
+}
+
+/* Lista de navegação */
+.nav-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin-right: 28px;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #DDD;
+    padding: 20px;
+}
+
+.nav-list a:hover {
+    color: #ff6700;
+}
+
+/* Estilos da tabela */
+.table-container {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+    /* Permite rolagem horizontal em telas pequenas */
+    margin-top: 20px;
+}
+
+/* Título da tabela */
+h1 {
+    color: #fff;
+    font-size: 36px;
+    margin-bottom: 20px;
+    /* Adiciona espaço abaixo do h1 */
+}
+
+/* Estilizando a tabela */
+table {
+    width: 90%;
+    /* A tabela vai ocupar 90% da largura da tela */
+    max-width: 1200px;
+    /* Limita a largura da tabela */
+    height: auto;
+    /* Ajusta a altura da tabela */
+    border-collapse: collapse;
+    background-color: #333333;
+    /* Cor de fundo mais escura */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Sombra para dar profundidade */
+}
+
+/* Estilos das células e cabeçalhos */
+th,
+td {
+    padding: 12px;
+    /* Reduzido para um espaçamento mais compacto */
+    text-align: left;
+    border: 1px solid #444;
+    /* Cor das bordas */
+    color: #fff;
+    /* Cor do texto nas células */
+}
+
+th {
+    background-color: #ff6700;
+    /* Cabeçalho com cor de destaque */
+    font-size: 18px;
+    font-weight: bold;
+}
+
+td {
+    background-color: #555555;
+    /* Cor de fundo das células */
+    font-size: 16px;
+}
+
+/* Cores de interação */
+td a {
+    color: #ff6700;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+td a:hover {
+    color: #fff;
+}
+
+.excluir {
+    cursor: pointer;
+}
+
+/* Tornar a tabela responsiva */
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    th,
+    td {
+        padding: 10px;
+    }
+
+    .table-container {
+        padding: 20px;
+    }
+}
+
+/* Rodapé */
+footer {
+    background-color: #181818;
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    margin-top: auto;
+    /* Faz com que o rodapé fique sempre no final */
+}
+
+/* Links no rodapé */
+footer a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+/* Texto do rodapé */
+footer p {
+    margin-left: 12px;
+}
