@@ -94,6 +94,4 @@ public class Cliente {
     public void setDia(LocalDate dia) {
         this.dia = dia;
     }
-
-
 }
