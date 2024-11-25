@@ -3,21 +3,27 @@ package com.bd.sitebd.model;
 import java.util.List;
 import java.util.Map;
 
+// Importação do DataSource (conectar com o banco de dados)
 import javax.sql.DataSource;
 
+// Importação do JdbcTemplate (ferramenta do Spring que facilitaa a interação com o banco de dados)
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import jakarta.annotation.PostConstruct;
 
-@Repository
+
+// Essa classe vai interagir com o banco de dados, para buscar, adicionar ou excluir dados.
+@Repository // Diz ao Spring que esta classe é um componente de acesso a dados.
 public class ClienteDAO {
     @Autowired
-    DataSource dataSource;
+    DataSource dataSource; //Configura conexão com o banco de dados automaticamente baseado no application.properties ou no application.yml.
     JdbcTemplate jdbc;
 
-    @PostConstruct
+     // O initialize é executado automaticamente quando o objeto ClienteDAO é criado.
+    // Inicializa o JdbcTemplate e conecta ao banco de dados usando o DataSource.
+    @PostConstruct //O método é executado automaticamente pelo Spring após o bean ser instanciado e as dependências injetadas.
     private void initialize() {
         jdbc = new JdbcTemplate(dataSource);
     }
