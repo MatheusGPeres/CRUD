@@ -95,17 +95,5 @@ public class Cliente {
         this.dia = dia;
     }
 
-    // Método toString (opcional, pode ser descomentado se necessário)
-    // @Override
-    // public String toString() {
-    // return "Cliente{" +
-    // "id=" + id +
-    // ", nome='" + nome + '\'' +
-    // ", email='" + email + '\'' +
-    // ", telefone='" + telefone + '\'' +
-    // ", servico='" + servico + '\'' +
-    // ", horario='" + horario + '\'' +
-    // ", data='" + data + '\'' +
-    // '}';
-    // }
+
 }
