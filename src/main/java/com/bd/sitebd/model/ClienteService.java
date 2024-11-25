@@ -31,9 +31,8 @@ public class ClienteService {
 
     // Método para obter um cliente específico do banco de dados com base no ID
     public Cliente obterCliente(int id) {
-        return clienteDAO.obterCliente(id); // OLHAR E VER O QUE ESTÀ FAZENDO ESSE (CLIENTE) POIS FOI SUGESTÂO
-                                            // DA
-        // LAMPADA DO VS CODE PQ SEM ISSO TAVA ACUSANDO ERRO
+        return clienteDAO.obterCliente(id); //Fazendo interação com o banco de dados através do DAO;
+                                            
     }
 
     // Método para deletar um cliente do banco de dados com base no ID
