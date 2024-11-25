@@ -6,7 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service //Ao colocar o @Service, a classe ClienteService pode ser usada em outras classes que necessitem dela
 public class ClienteService {
     // O serviço interage com o DAO, e a view não tem acesso direto ao DAO, só ao
     // Service
