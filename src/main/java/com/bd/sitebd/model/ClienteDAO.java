@@ -14,18 +14,15 @@ import org.springframework.stereotype.Repository;
 import jakarta.annotation.PostConstruct;
 
 
-// Essa classe vai interagir com o banco de dados, para buscar, adicionar ou excluir dados.
 @Repository // Diz ao Spring que esta classe é um componente de acesso a dados.
 public class ClienteDAO {
     @Autowired //Sem o @Autowired, teria que instanciar manualmente.
     DataSource dataSource; //Configura conexão com o banco de dados automaticamente baseado no application.properties ou no application.yml.
     JdbcTemplate jdbc;
 
-     // O initialize é executado automaticamente quando o objeto ClienteDAO é criado.
-    // Inicializa o JdbcTemplate e conecta ao banco de dados usando o DataSource.
     @PostConstruct //O método é executado automaticamente pelo Spring após o bean ser instanciado e as dependências injetadas.
     private void initialize() {
-        jdbc = new JdbcTemplate(dataSource);
+        jdbc = new JdbcTemplate(dataSource); // Inicializa o JdbcTemplate e conecta ao banco de dados usando o DataSource.
     }
 
     public void inserirCliente(Cliente cliente) {
