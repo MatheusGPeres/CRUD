@@ -1,6 +1,7 @@
 package com.bd.sitebd.controller;
 
-import java.util.List;
+//Acessar dados que vão ser usados para trabalhar com listas e mapas.
+import java.util.List; 
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,21 +13,24 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+//Importando as classes Cliente e ClienteService, que representam o modelo de dados (cliente) e a lógica de negócio (serviço para manipular os clientes) da aplicação.
 import com.bd.sitebd.model.Cliente;
 import com.bd.sitebd.model.ClienteService;
 
+//Indica que é um Controller 
 @Controller
 public class CadastroController {
 
     @Autowired
     ApplicationContext context;
 
+    //Mapeia uma URL (no caso, a raiz)
     @GetMapping("/")
-    public String home() {
+    public String home() { //Ao acessar a página inicial do site, esse método é chamado.
         return "principal";
     }
 
-    @GetMapping("/atualizar/{id}")
+    @GetMapping("/atualizar/{id}") //O {id} é uma variável que será substituída pelo valor real na URL (como /atualizar/1).
     public String atualizar(Model model, @PathVariable int id) {
         ClienteService cs = context.getBean(ClienteService.class);
         Cliente cli = cs.obterCliente(id);
@@ -36,8 +40,8 @@ public class CadastroController {
     }
 
     // Processamento da atualização de cliente
-    @PostMapping("/atualizar/{id}")
-    public String atualizarCliente(@PathVariable int id, @ModelAttribute Cliente cliente) {
+    @PostMapping("/atualizar/{id}") //Esse método será chamado quando um formulário de atualização de cliente for enviado.
+    public String atualizarCliente(@PathVariable int id, @ModelAttribute Cliente cliente) { //@PathVariable captura o valor da URL ({id}) e os passa como parâmetro
         ClienteService cs = context.getBean(ClienteService.class);
         cs.atualizarCliente(id, cliente);
         return "atualizou";
@@ -46,7 +50,7 @@ public class CadastroController {
     // Página de agendamento
     @GetMapping("/agendamento")
     public String agendamento(Model model) {
-        model.addAttribute("cliente", new Cliente());
+        model.addAttribute("cliente", new Cliente()); //Cria um novo objeto cliente em branco para ser usado na view.
         return "agendamento";
     }
 
@@ -77,12 +81,6 @@ public class CadastroController {
     public String deletar(@PathVariable int id) {
         ClienteService cs = context.getBean(ClienteService.class);
         cs.deletarCliente(id);
-        return "redirect:/tabela";
+        return "redirect:/tabela"; //Redirect garante recarregar a página
     }
 }
-
-// // Página de sucesso após agendamento
-// @GetMapping("/sucesso")
-// public String sucesso() {
-// return "tabela";
-// }
