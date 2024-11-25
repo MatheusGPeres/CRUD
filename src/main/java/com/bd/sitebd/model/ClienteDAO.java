@@ -17,7 +17,7 @@ import jakarta.annotation.PostConstruct;
 // Essa classe vai interagir com o banco de dados, para buscar, adicionar ou excluir dados.
 @Repository // Diz ao Spring que esta classe é um componente de acesso a dados.
 public class ClienteDAO {
-    @Autowired
+    @Autowired //Sem o @Autowired, teria que instanciar manualmente.
     DataSource dataSource; //Configura conexão com o banco de dados automaticamente baseado no application.properties ou no application.yml.
     JdbcTemplate jdbc;
 
